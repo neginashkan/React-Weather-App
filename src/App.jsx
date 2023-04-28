@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import "./CSS/styles.css"
-import Search from "./componets/Search"
-import Weather from "./componets/Weather"
+import Search from "./components/Search"
+import Weather from "./components/Weather"
 
 function App() {
 
