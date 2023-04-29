@@ -163,6 +163,15 @@ text-shadow: -1.13852px 1.70778px 0.569258px rgba(0, 0, 0, 0.1);
   max-height: 56.34px;
     margin: 0 auto;
 }
+.open-source-code{
+  margin: 0 auto;
+}
+.open-source-code a{
+  color: blue;
+}
+.open-source-code a:hover{
+  color: rgb(225, 0, 255);
+}
 @media (max-width: 576px) { 
   :root{
     font-size: 10px;
