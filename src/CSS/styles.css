@@ -24,9 +24,11 @@ body {
   flex-direction: column;
   align-items: first baseline;
   margin-bottom: 2em;
+  height: 150vh;
 }
 .Weather{
   width: 100%;
+  height: auto;
 }
 .Search {
   width: 100%;
@@ -38,7 +40,9 @@ form,
 .Search {
   display: flex;
 }
-
+.Search{
+  height: auto;
+}
 form{
   width: 60%;
   justify-content: center;
@@ -96,7 +100,6 @@ form{
 .big-icon{
     width: 100%;
     max-width: 143.23px;
-    max-height: 100px;
       margin: 0 auto;
 }
 
@@ -177,3 +180,76 @@ text-shadow: -1.13852px 1.70778px 0.569258px rgba(0, 0, 0, 0.1);
     font-size: 10px;
   }
  }
+
+
+ .input-checkbox[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label.toggle {
+  color: #f5f5f5;
+  text-shadow: none;
+  cursor: pointer;
+  background: #f5f5f5;
+  border-radius: 100px;
+  width: 15%;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.label-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 1.8rem;
+  line-height: 0.688rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+.dark--text {
+  color: #ffffff;
+  margin-left: 0.5em;
+}
+.light--text {
+  color: #3d3a44;
+  margin-right: 0.5em;
+  order: -1;
+}
+.input-checkbox:checked ~ .dark--text {
+  color: #d5d4d8;
+}
+.input-checkbox:checked ~ .light--text {
+  color: #2b283a;
+}
+
+label.toggle::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 6%;
+  width: 16px;
+  height: 16px;
+  background: #222222;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+.input-checkbox:checked + label.toggle::after {
+  right: calc(100% - 6%);
+  transform: translateX(100%);
+  background: #ffffff;
+}
+.input-checkbox:checked + label.toggle {
+  color: #2b283a;
+  background: #2b283a;
+}
+.bars{
+  display: flex;
+  justify-content: center;
+}
+.description{
+  text-transform: capitalize;
+  letter-spacing: 3px;
+  font-weight: 300;
+  font-size: 1em;
+}

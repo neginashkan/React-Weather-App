@@ -1,9 +1,9 @@
-function Search() {
+import { useState } from "react"
+function Search({ handleChange, handleSubmit }) {
     return (
     <div className="Search">
-            <div className="location"><i class="fa-solid fa-location-dot"></i> Iran, Urmia</div>
-        <form>
-            <input className="search-input" type="text" autoComplete="off" autoFocus />
+            <form onSubmit={handleSubmit}>
+            <input onChange={handleChange} className="search-input" type="text" autoComplete="off" autoFocus />
                 <button className="button-input" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </div>)
