@@ -1,13 +1,25 @@
 import { useState } from "react";
-import Day from "./Day"
-import DateFormat from "./DateFormat"
+import WeatherInfo from "./WeatherInfo"
+import Search from "./Search"
 import axios from 'axios';
 import { Bars } from 'react-loader-spinner'
-function Weather({city}) {
-    const [showCelsius, setShowCelsius] = useState(true)
-    function handleClick(event){
-        setShowCelsius(!event.target.checked)
+function Weather({defaultCity}) {
+    function search(city){
+        const apiKey = "04oabt67c234956913f3d410bfd5b681"
+        const url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`
+        axios.get(url).then(handleResponse)
     }
+    const [city, setCity] = useState(defaultCity)
+    function handleSubmit(event) {
+        event.preventDefault()
+        search(city)
+    }
+    function handleChange(event) {
+        event.preventDefault()
+        setCity(event.target.value)
+    }
+
+
     const [weatherData, setWeatherData] = useState({
         ready:false,
         country: null,
@@ -34,51 +46,14 @@ function Weather({city}) {
     }
     if (weatherData.ready) {
         return (
-            <div className="Weather">
-                <div className="location"><i class="fa-solid fa-location-dot"></i> {weatherData.country} ,{weatherData.city}</div>
-                <img className="big-icon" title={weatherData.description} alt={weatherData.description} src={weatherData.iconUrl} />
-                <div className="description">{weatherData.description}</div>
-                <div className="temperature">
-                    <h1 className="degree">{showCelsius ? weatherData.celsius : Math.round((weatherData.celsius * 9 / 5) + 32)}<span className="unit">° {showCelsius ? "C" : "F"}</span></h1>
-                    <div className="converter">
-                        <form>
-                            <input
-                                id="switch-button"
-                                name="switch-button"
-                                type="checkbox"
-                                className="input-checkbox"
-                                onClick={handleClick}
-                            />
-                            <label htmlFor="switch-button" className="toggle">
-                                toggle
-                            </label>
-                            <span className="light--text label-text">F</span>
-                            <span className="dark--text label-text">C</span>
-                        </form>
-                    </div>
-                </div>
-                <DateFormat date={weatherData.date}/>
-                <ul>
-                    <li><i class="fa-sharp fa-solid fa-wind"></i> Wind {weatherData.wind} km/h</li>
-                    <li><i class="fa-solid fa-droplet"></i> Hum {weatherData.humidity} %</li>
-                    {/* <li><i class="fa-solid fa-cloud-rain"></i> Rain 0.2 %</li> */}
-                </ul>
-                <div className="Days">
-                    {/* <Day />
-                    <Day />
-                    <Day />
-                    <Day />
-                    <Day />
-                    <Day /> */}
-                </div>
-                <div className='open-source-code'><a href="https://github.com/neginashkan/React-Weather-App" target="_blank" rel="noopener noreferrer">open source code</a> by Negin ashkan</div>
-            </div>
+        <div className="Weather">
+            <Search handleChange={handleChange} handleSubmit={handleSubmit} />
+            <WeatherInfo info={weatherData}/>
+        </div>
         )
 
     } else {
-        const apiKey = "04oabt67c234956913f3d410bfd5b681"
-        const url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`
-        axios.get(url).then(handleResponse)
+        search(city)
         return (
             <div className="Weather bars">
                 <Bars

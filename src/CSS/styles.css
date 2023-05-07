@@ -98,8 +98,8 @@ form{
   position: relative;
 }
 .big-icon{
-    width: 100%;
-    max-width: 143.23px;
+    /* width: 100%; */
+    max-width: 100%;
       margin: 0 auto;
 }
 
@@ -246,10 +246,12 @@ label.toggle::after {
 .bars{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .description{
   text-transform: capitalize;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  padding-right: 1.5em;
 }
