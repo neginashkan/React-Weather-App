@@ -251,5 +251,5 @@ label.toggle::after {
   text-transform: capitalize;
   letter-spacing: 3px;
   font-weight: 300;
-  font-size: 1em;
+  font-size: 0.8rem;
 }
