@@ -9,4 +9,4 @@ Weather is sometimes difficult to predict. This accurate weather app allows to f
 - Weather forecast days
 
 ### Live-Preview
-[Click Here to View Live Preview]()
+[Click Here to View Live Preview](https://negin-react-weather-app.netlify.app/)
