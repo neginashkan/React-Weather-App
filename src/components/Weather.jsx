@@ -23,6 +23,7 @@ function Weather({defaultCity}) {
     const [weatherData, setWeatherData] = useState({
         ready:false,
         country: null,
+        coord: null,
         city: null,
         celsius: null,
         iconName: null,
@@ -35,6 +36,7 @@ function Weather({defaultCity}) {
         setWeatherData({
             ready: true,
             country: response.data.country,
+            coord: response.data.coordinates,
             city: response.data.city,
             celsius: Math.round(response.data.temperature.current),
             description: response.data.condition.description,
@@ -55,7 +57,7 @@ function Weather({defaultCity}) {
     } else {
         search(city)
         return (
-            <div className="Weather bars">
+            <div className="bars">
                 <Bars
                     height="80"
                     width="80"

@@ -25,7 +25,7 @@ body {
   flex-direction: column;
   align-items: first baseline;
   margin-bottom: 2em;
-  height: 150vh;
+  height: auto;
 }
 .Weather{
   width: 100%;
@@ -162,9 +162,7 @@ text-align: center;
 text-shadow: -1.13852px 1.70778px 0.569258px rgba(0, 0, 0, 0.1);
 }
 .small-icon{
-  max-width: 67.57px;
-  width: 100%;
-  max-height: 56.34px;
+  max-width: 100%;
     margin: 0 auto;
 }
 .open-source-code{
@@ -248,6 +246,9 @@ label.toggle::after {
   display: flex;
   justify-content: center;
   align-items: center;
+    width: 100%;
+  height: auto;
+  height: 100vh;
 }
 .description{
   text-transform: capitalize;
@@ -255,4 +256,18 @@ label.toggle::after {
   font-weight: 300;
   font-size: 0.7rem;
   padding-right: 1.5em;
+}
+
+
+
+.min-degree{
+  opacity: 0.3;
+  color: black;
+}
+
+.day-description{
+  color: black;
+opacity: 0.7;
+  font-family: 200;
+  font-size: 0.7rem;
 }

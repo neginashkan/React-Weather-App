@@ -1,6 +1,6 @@
 import DateFormat from "./DateFormat"
 import WeatherTemperature from "./WeatherTemperature"
-import Day from "./Day"
+import Days from "./Days"
 function WeatherInfo(props) {
     return (
         <div className="Weather">
@@ -14,14 +14,7 @@ function WeatherInfo(props) {
                 <li><i class="fa-solid fa-droplet"></i> Hum {props.info.humidity} %</li>
                 {/* <li><i class="fa-solid fa-cloud-rain"></i> Rain 0.2 %</li> */}
             </ul>
-            <div className="Days">
-                {/* <Day />
-                    <Day />
-                    <Day />
-                    <Day />
-                    <Day />
-                    <Day /> */}
-            </div>
+            <Days coord={props.info.coord}/>
             <div className='open-source-code'><a href="https://github.com/neginashkan/React-Weather-App" target="_blank" rel="noopener noreferrer">open source code</a> by Negin ashkan and <a href="https://negin-react-weather-app.netlify.app/" target="_blank" rel="noopener noreferrer">hosted on Netlify</a> </div>
         </div>
     )
